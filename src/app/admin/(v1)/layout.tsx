@@ -1,5 +1,6 @@
 import { SideBar } from "@/components/layout/sidebar";
 import { TopBar } from "@/components/layout/torbar";
+import { Toaster } from "@/components/ui/sonner";
 import { SessionProvider } from "next-auth/react";
 
 export default async function AdminLayout({
@@ -15,6 +16,7 @@ export default async function AdminLayout({
       </header>
       <main className="pl-72 pt-14">
         <SessionProvider>{children}</SessionProvider>
+        <Toaster position="bottom-left" richColors closeButton />
       </main>
     </>
   );

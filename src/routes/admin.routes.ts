@@ -22,17 +22,7 @@ const routesAdmin: Route[] = [
   {
     path: `${adminPrefix}/create`,
     icon: AcademicCapIcon,
-    name: "Certificar",
-  },
-  {
-    path: `${adminPrefix}/students`,
-    icon: FolderIcon,
-    name: "Estudiantes",
-  },
-  {
-    path: `${adminPrefix}/courses`,
-    icon: BookmarkIcon,
-    name: "Cursos",
+    name: "Registrar",
   },
 ];
 

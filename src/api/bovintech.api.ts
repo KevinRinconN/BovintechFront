@@ -1,6 +1,6 @@
 import { BASE_API } from "@/utils/contants.utils";
+import { getSession } from "@/utils/getSession";
 import axios from "axios";
-import { getSession } from "next-auth/react";
 
 const bovintechApi = axios.create({
   baseURL: BASE_API,
