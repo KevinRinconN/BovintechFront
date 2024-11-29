@@ -1,15 +1,16 @@
 import { Separator } from "@/components/ui/separator";
 import { CreateStepper } from "./create-stepper";
+import { PageWrapper } from "@/components/page-wrapper";
 
 export default function CreatePage() {
   return (
-    <div className="md:p-10 flex flex-col gap-4 items-center justify-between">
+    <PageWrapper>
       <div className="mx-auto grid w-full max-w-6xl gap-2">
-        <h1 className="text-3xl font-semibold">Registar bovino</h1>
-        <p className="text-muted-foreground">Crea un bovino </p>
+        <h1 className="text-xl md:text-2xl font-semibold">Registro de Bovinos</h1>
+        <p className="text-sm md:text-base text-muted-foreground">Administra y organiza de manera eficiente el registro de bovinos en tu sistema. Captura detalles esenciales como identificación, raza, edad y más, asegurando un seguimiento preciso de cada animal en tu inventario. 🐄</p>
       </div>
       <Separator className="my-6" />
       <CreateStepper />
-    </div>
+    </PageWrapper>
   );
 }

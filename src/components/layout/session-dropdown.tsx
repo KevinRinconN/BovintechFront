@@ -22,7 +22,7 @@ export const SessionInfo = ({ user }: infoSessionProps) => {
     <div className="flex">
       <div className="flex flex-col justify-center items-end mr-4">
         <span className="text-xs leading-none capitalize">
-          {user.firstname.toLowerCase()} {user.lastname.toLowerCase()}
+          {user.firstName.toLowerCase()} {user.lastName.toLowerCase()}
         </span>
         <span className="text-xs text-primary leading-none capitalize">
           {user.rol.toLowerCase()}
@@ -32,8 +32,8 @@ export const SessionInfo = ({ user }: infoSessionProps) => {
       <Avatar className="w-9 h-9">
         <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
         <AvatarFallback>
-          {user.firstname.charAt(0)}
-          {user.lastname.charAt(0)}
+          {user.firstName.charAt(0)}
+          {user.lastName.charAt(0)}
         </AvatarFallback>
       </Avatar>
     </div>
@@ -57,13 +57,13 @@ export const SessionDropDown = ({ user, children }: SessionDropDown) => {
             <Avatar className="w-16 h-16">
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
               <AvatarFallback>
-                {user.firstname.charAt(0)}
-                {user.lastname.charAt(0)}
+                {user.firstName.charAt(0)}
+                {user.lastName.charAt(0)}
               </AvatarFallback>
             </Avatar>
 
             <div className="text-sm font-normal">
-              <p className="capitalize">{`${user.firstname.toLowerCase()} ${user.lastname.toLowerCase()}`}</p>
+              <p className="capitalize">{`${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`}</p>
               <p className="text-primary text-xs capitalize leading-none">{`${user.rol.toLowerCase()}`}</p>
 
               <p className="max-w-sm text-gray-500">{`${user.email}`}</p>

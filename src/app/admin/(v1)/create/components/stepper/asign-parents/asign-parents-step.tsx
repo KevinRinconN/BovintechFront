@@ -12,7 +12,7 @@ export const AsignParentsStep = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Asigna los progenitores</h3>
+        <h3 className="text-base md:text-lg font-medium">Asigna los progenitores</h3>
         <p className="text-sm text-muted-foreground">
           Completa los siguientes campos para asignar una madre y/o un padre
           registrado al bovino

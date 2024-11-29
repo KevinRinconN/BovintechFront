@@ -69,7 +69,7 @@ export const AsignParentsForm = ({
 
   const setCattleSireHandle = async () => {
     try {
-      const { data } = await getCattleByGender("COW");
+      const { data } = await getCattleByGender("BULL");
       setCattleSire(data.content);
     } catch (error) {
       toast.error(`${error}`);
@@ -78,7 +78,7 @@ export const AsignParentsForm = ({
 
   const setCattleDamHandle = async () => {
     try {
-      const { data } = await getCattleByGender("BULL");
+      const { data } = await getCattleByGender("COW");
       setCattleDam(data.content);
     } catch (error) {
       toast.error(`${error}`);
@@ -126,12 +126,12 @@ export const AsignParentsForm = ({
                         <FormControl>
                           <ComboboxTrigger asChild>
                             <ComboboxValue
-                              className="w-full max-w-md"
-                              placeholder="Selecciona una empresa"
+                              className="w-full md:max-w-md"
+                              placeholder="Selecciona el padre"
                             ></ComboboxValue>
                           </ComboboxTrigger>
                         </FormControl>
-                        <ComboboxContent align="start" className=" p-0">
+                        <ComboboxContent align="start" className=" p-0 z-[100] pointer-events-auto">
                           <CommandInput
                             onValueChange={setSearchSire}
                             placeholder="Busca un padre ..."
@@ -183,12 +183,12 @@ export const AsignParentsForm = ({
                         <FormControl>
                           <ComboboxTrigger asChild>
                             <ComboboxValue
-                              className="w-full max-w-md"
-                              placeholder="Selecciona una empresa"
+                              className="w-full md:max-w-md"
+                              placeholder="Selecciona la madre"
                             ></ComboboxValue>
                           </ComboboxTrigger>
                         </FormControl>
-                        <ComboboxContent align="start" className=" p-0">
+                        <ComboboxContent align="start" className=" p-0 z-[100] pointer-events-auto">
                           <CommandInput
                             onValueChange={setSearchDam}
                             placeholder="Busca una madre ..."

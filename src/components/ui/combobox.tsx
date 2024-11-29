@@ -104,6 +104,7 @@ export const ComboboxValue = React.forwardRef<
     </Button>
   );
 });
+ComboboxValue.displayName = "ComboboxValue";
 
 export const ComboboxContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -121,7 +122,7 @@ export const ComboboxContent = React.forwardRef<
     </PopoverContent>
   );
 });
-
+ComboboxContent.displayName = "ComboboxContent";
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   /**
    * Optional controlled state for the value of the search input.
@@ -140,7 +141,7 @@ export const ComboboxInput = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-
+ComboboxInput.displayName = "ComboboxInput";
 export const ComboboxList = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
@@ -151,7 +152,7 @@ export const ComboboxList = React.forwardRef<
     {...props}
   />
 ));
-
+ComboboxList.displayName = "ComboboxList";
 export const ComboboxEmpty = CommandEmpty;
 
 export const ComboboxGroup = CommandGroup;
@@ -203,3 +204,5 @@ export const ComboboxItem = React.forwardRef<HTMLDivElement, ItemProps>(
     );
   }
 );
+
+ComboboxItem.displayName = "ComboboxItem";

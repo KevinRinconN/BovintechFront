@@ -1,1 +1,1 @@
-export const BASE_API = "http://localhost:8080/certification-hub/api";
+export const BASE_API = process.env.NEXT_PUBLIC_BASE_API;

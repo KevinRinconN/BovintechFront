@@ -42,7 +42,7 @@ export const CreateStepper = () => {
 
 const ProgressStepper = () => {
   return (
-    <Card>
+    <Card className="border">
       <CardHeader>
         <CardTitle>Registra un bovino</CardTitle>
         <CardDescription>Realiza los siguientes pasos</CardDescription>

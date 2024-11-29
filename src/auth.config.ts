@@ -6,16 +6,17 @@ export const authConfig: NextAuthConfig = {
   pages: {
     signIn: "/auth/login",
   },
+  trustHost: true,
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
-      // const isLoggedIn = !!auth?.user;
-      // const isOnDashboard = nextUrl.pathname.startsWith("/admin");
-      // if (isOnDashboard) {
-      //   if (isLoggedIn) return true;
-      //   return false; // Redirect unauthenticated users to login page
-      // } else if (isLoggedIn) {
-      //   return Response.redirect(new URL("/admin/home", nextUrl));
-      // }
+      const isLoggedIn = !!auth?.user;
+      const isOnDashboard = nextUrl.pathname.startsWith("/admin");
+      if (isOnDashboard) {
+        if (isLoggedIn) return true;
+        return false; // Redirect unauthenticated users to login page
+      } else if (isLoggedIn) {
+        return Response.redirect(new URL("/admin/lots", nextUrl));
+      }
       return true;
     },
     jwt({ token, user }) {
@@ -41,7 +42,9 @@ export const authConfig: NextAuthConfig = {
 
           const username = credentials.username as string;
           const password = credentials.password as string;
+         
           const { access_token } = await getToken(username, password);
+        
           const user = await getMe(access_token);
           if (!user) return null;
 

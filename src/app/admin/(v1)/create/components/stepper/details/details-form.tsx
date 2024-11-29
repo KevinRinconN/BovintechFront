@@ -27,7 +27,7 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
-import esLocale from "date-fns/locale/es";
+import { es } from "date-fns/locale/es";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ScaleIcon, UsersIcon } from "@heroicons/react/24/outline";
 import { Label } from "@/components/ui/label";
@@ -35,6 +35,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { CreateBovine, createBovine } from "@/services/bovine.service";
 import { useParientsStepperStore } from "@/store/create-bovine/create-bovine.store";
+import { IconWrapper } from "@/components/icon/icon-wrapper";
 
 const formSchema = z.object({
   breed: z.string({
@@ -82,9 +83,6 @@ export const DetailsForm = ({
 }: OptionalDetailsProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      ...defaultValues,
-    },
   });
   const store = useParientsStepperStore((state) => state);
 
@@ -188,7 +186,7 @@ export const DetailsForm = ({
                           >
                             {field.value ? (
                               format(field.value, "PPP", {
-                                locale: esLocale as any,
+                                locale: es as any,
                               })
                             ) : (
                               <span>Selecciona una fecha</span>
@@ -197,7 +195,7 @@ export const DetailsForm = ({
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent className="w-auto p-0 pointer-events-auto" align="start">
                         <Calendar
                           classNames={{
                             caption_label: "hidden",
@@ -246,10 +244,10 @@ export const DetailsForm = ({
                           />
                           <Label
                             htmlFor="men"
-                            className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                            className="flex flex-col space-y-4 items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                           >
-                            <UsersIcon className="mb-3 h-6 w-6" />
-                            Hombre
+                            <IconWrapper icon="bull" size="xl" />
+                            <span>Macho</span>
                           </Label>
                         </div>
                         <div>
@@ -260,10 +258,10 @@ export const DetailsForm = ({
                           />
                           <Label
                             htmlFor="women"
-                            className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                            className="flex flex-col space-y-4 items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                           >
-                            <ScaleIcon className="mb-3 h-6 w-6" />
-                            Mujer
+                            <IconWrapper icon="cow" size="xl" />
+                            <span>Hembra</span>
                           </Label>
                         </div>
                       </RadioGroup>

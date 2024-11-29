@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
@@ -12,6 +14,8 @@ import {
 
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
+import { IconWrapper } from "../icon/icon-wrapper"
+import { Input } from "./input"
 
 const Form = FormProvider
 
@@ -101,6 +105,49 @@ const FormLabel = React.forwardRef<
 })
 FormLabel.displayName = "FormLabel"
 
+
+const FormInput = React.forwardRef<
+  HTMLInputElement,
+  React.InputHTMLAttributes<HTMLInputElement>
+>(({ className, type, ...props }, ref) => {
+  const { error } = useFormField();
+  const [isShow, setIsShow] = React.useState(false);
+  return (
+    <div className="relative flex items-center">
+      <div className="flex gap-x-2 absolute right-3">
+        {type == "password" && (
+          <IconWrapper
+            onClick={() => setIsShow((prev) => !prev)}
+            icon={isShow ? "eyeOff" : "eye"}
+            className={cn("text-muted-foreground",error && "text-destructive")}
+            strokeWidth="bold"
+          />
+        )}
+        {error && !(type == "password") && (
+          <IconWrapper
+            icon="info"
+            className="text-destructive"
+            strokeWidth="bold"
+          />
+        )}
+      </div>
+      <Input
+        ref={ref}
+        type={type == "password" ? (isShow ? "text" : "password") : type}
+        className={cn(
+          error &&
+            "border-destructive focus-visible:ring-destructive focus-visible:shadow-destructive",
+          className
+        )}
+        {...props}
+      />
+    </div>
+  );
+});
+
+FormInput.displayName = "FormInput";
+
+
 const FormControl = React.forwardRef<
   React.ElementRef<typeof Slot>,
   React.ComponentPropsWithoutRef<typeof Slot>
@@ -169,6 +216,7 @@ export {
   Form,
   FormItem,
   FormLabel,
+  FormInput,
   FormControl,
   FormDescription,
   FormMessage,

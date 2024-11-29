@@ -5,10 +5,10 @@ declare module "next-auth" {
     user: {
       id: string;
       username: string;
-      firstname: string;
-      lastname: string;
+      firstName: string;
+      lastName: string;
       email: string;
-      rol: string;
+      rol: "ADMIN" | "OPERATOR";
       access_token: string;
       image?: string;
     } & DefaultSession["user"];

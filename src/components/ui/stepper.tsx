@@ -73,7 +73,7 @@ export const Stepper = React.forwardRef<
     </StepperContext.Provider>
   );
 });
-
+Stepper.displayName = "Stepper";
 export const StepperContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -81,7 +81,7 @@ export const StepperContent = React.forwardRef<
   const { step, setSteps } = useContextStepper();
   useEffect(() => {
     setSteps(children as ReactElement[]);
-  }, []);
+  }, [children, setSteps]);
 
   return (
     <div ref={ref} {...props}>
@@ -89,7 +89,7 @@ export const StepperContent = React.forwardRef<
     </div>
   );
 });
-
+StepperContent.displayName = "StepperContent";
 export const StepperProgress = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -119,7 +119,7 @@ export const StepperProgress = React.forwardRef<
     </div>
   );
 });
-
+StepperProgress.displayName = "StepperProgress";
 interface ProgreessItemContextProps {
   currentStep: number;
   step: number;
@@ -167,7 +167,7 @@ export const StepperProgressItem = React.forwardRef<
     </div>
   );
 });
-
+StepperProgressItem.displayName = "StepperProgressItem";
 interface StepperIconProps extends React.HTMLAttributes<HTMLDivElement> {
   classSelected?: string;
   classCompleted?: string;
@@ -195,7 +195,7 @@ export const ProgressIcon = React.forwardRef<HTMLDivElement, StepperIconProps>(
     );
   }
 );
-
+ProgressIcon.displayName = "ProgressIcon";
 export const ProgressDescription = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -223,7 +223,7 @@ export const ProgressDescription = React.forwardRef<
     </div>
   );
 });
-
+ProgressDescription.displayName = "ProgressDescription";
 interface StepperControlProps {
   children: ({}: childrenProps) => JSX.Element;
 }
@@ -243,7 +243,7 @@ export const StepperNext = React.forwardRef<
   const { next } = useContextStepper();
   return <Button ref={ref} {...props} variant={variant} onClick={next} />;
 });
-
+StepperNext.displayName = "StepperNext";
 export const StepperPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
@@ -253,3 +253,4 @@ export const StepperPrevious = React.forwardRef<
     <Button ref={ref} {...props} variant={variant} onClick={context.back} />
   );
 });
+StepperPrevious.displayName = "StepperPrevious";

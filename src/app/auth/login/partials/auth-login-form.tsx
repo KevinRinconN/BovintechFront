@@ -45,7 +45,7 @@ export const AuthLoginForm = () => {
 
   useEffect(() => {
     if (state == "Success") {
-      window.location.replace("/");
+      window.location.replace("/admin/lots");
     }
   }, [state]);
 

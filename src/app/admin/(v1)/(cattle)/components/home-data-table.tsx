@@ -23,34 +23,34 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
 export const HomeDataTable = () => {
-  const [bovine, setBovine] = useState<Bovine[]>();
-  const [bovinefilter, setBovineFilter] = useState<Bovine[]>();
-  const [search, setSearch] = useState("");
+  // const [bovine, setBovine] = useState<Bovine[]>();
+  // const [bovinefilter, setBovineFilter] = useState<Bovine[]>();
+  // const [search, setSearch] = useState("");
 
-  const setBovineHandler = async () => {
-    try {
-      const { data } = await getCattle();
+  // const setBovineHandler = async () => {
+  //   try {
+  //     const { data } = await getCattle();
 
-      setBovine(data.content);
-      setBovineFilter(data.content);
-    } catch (error) {}
-  };
+  //     setBovine(data.content);
+  //     setBovineFilter(data.content);
+  //   } catch (error) {}
+  // };
 
-  const filterBovine = (value: string) => {
-    setBovineFilter(
-      bovine?.filter((bovine) => bovine.distinctiveTrait.includes(value))
-    );
-  };
-  useEffect(() => {
-    filterBovine(search);
-  }, [search]);
+  // const filterBovine = (value: string) => {
+  //   setBovineFilter(
+  //     bovine?.filter((bovine) => bovine.distinctiveTrait.includes(value))
+  //   );
+  // };
+  // useEffect(() => {
+  //   filterBovine(search);
+  // }, [search]);
 
-  useEffect(() => {
-    setBovineHandler();
-  }, []);
+  // useEffect(() => {
+  //   setBovineHandler();
+  // }, []);
   return (
     <>
-      <div className="space-y-4">
+      {/* <div className="space-y-4">
         <Input
           placeholder="Filtra por descripción..."
           value={search}
@@ -110,7 +110,7 @@ export const HomeDataTable = () => {
             </TableBody>
           </Table>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

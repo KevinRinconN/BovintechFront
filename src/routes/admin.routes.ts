@@ -1,29 +1,55 @@
-import {
-  RectangleStackIcon,
-  FolderIcon,
-  BookmarkIcon,
-  AcademicCapIcon,
-} from "@heroicons/react/24/outline";
+import { IconAdminPages } from "@/components/icon/icons";
 
 export interface Route {
-  path: string;
-  icon: React.ElementType;
-  name: string;
+  title: string;
+  href: string;
+  icon: IconAdminPages;
 }
 
 const adminPrefix = "/admin";
 
-const routesAdmin: Route[] = [
+export const routesAdmin: Route[] = [
   {
-    path: `${adminPrefix}/home`,
-    icon: RectangleStackIcon,
-    name: "Inicio",
+    href: `${adminPrefix}/lots`,
+    icon: "lot",
+    title: "Inicio",
   },
   {
-    path: `${adminPrefix}/create`,
-    icon: AcademicCapIcon,
-    name: "Registrar",
+    href: `${adminPrefix}/create`,
+    icon: "register",
+    title: "Registrar",
+  },
+  {
+    href: `${adminPrefix}/operator`,
+    icon: "operator",
+    title: "Operadores",
+  },
+  {
+    href: `${adminPrefix}/events`,
+    icon: "events",
+    title: "Eventos",
+  },
+  {
+    href: `${adminPrefix}/log`,
+    icon: "record",
+    title: "Historial",
   },
 ];
 
-export default routesAdmin;
+export const routesOperator: Route[] = [
+  {
+    href: `${adminPrefix}/lots`,
+    icon: "lot",
+    title: "Inicio",
+  },
+  {
+    href: `${adminPrefix}/create`,
+    icon: "register",
+    title: "Registrar",
+  },
+  {
+    href: `${adminPrefix}/events`,
+    icon: "events",
+    title: "Eventos",
+  },
+];

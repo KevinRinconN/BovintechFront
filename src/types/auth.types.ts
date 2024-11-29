@@ -12,7 +12,7 @@ export interface AccesToken {
 export interface User {
   username: string;
   email: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   rol: string;
 }
